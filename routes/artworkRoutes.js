@@ -1,20 +1,16 @@
 import express from 'express';
-import { getArtworks, createArtwork } from '../controllers/artworkController.js';
+import { getArtworks, createArtwork, deleteArtwork } from '../controllers/artworkController.js';
 import multer from 'multer';
-import path from 'path';
 
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}${path.extname(file.originalname)}`);
-  }
-});
-
+// Configure multer for temporary storage
+const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 const router = express.Router();
 
 router.get('/', getArtworks);
-router.post('/', upload.single('image'), createArtwork); // Removed auth middleware
+router.post('/', upload.single('image'), createArtwork);
+router.delete('/:id', deleteArtwork);  // Add this line
+
 
 export default router;
