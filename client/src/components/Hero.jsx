@@ -2,19 +2,18 @@ import { Link as ScrollLink } from 'react-scroll';
 import { getCloudinaryUrl } from '../services/api';
 
 const Hero = () => {
-  const backgroundImageId = 'snakity-gallery/background_image';
+  const backgroundImageId = 'https://res.cloudinary.com/dl5bo3tq5/image/upload/v1735884150/snakity-gallery/background_image.png';
 
   return (
     <section className="relative min-h-screen">
       {/* Background Image with fade */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={getCloudinaryUrl(backgroundImageId, {
-            transformations: 'w_2000,c_fill,q_auto,f_auto,e_saturation:30/e_brightness:5'
-          })}
-          alt="Artistic background"
-          className="w-full h-full object-cover opacity-85"
-        />
+       
+<img 
+  src={`https://res.cloudinary.com/dl5bo3tq5/image/upload/w_2000,c_fill,q_auto,f_auto,e_saturation:30,e_brightness:5/snakity-gallery/background_image`}
+  alt="Artistic background"
+  className="w-full h-full object-cover opacity-85"
+/>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black opacity-90" />
       </div>
 
