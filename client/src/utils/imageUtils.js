@@ -61,7 +61,8 @@ export const getImageUrl = (artwork) => {
   if (isDevelopment) {
     return `/images/${artwork.filename}`;
   } else {
-    return artwork.imageUrl || `https://res.cloudinary.com/dl5bo3tq5/image/upload/v1/snakity-gallery/${artwork.filename}`;
+    // Remove the "v1/" part that's causing the issue
+    return artwork.imageUrl || `https://res.cloudinary.com/dl5bo3tq5/image/upload/snakity-gallery/${artwork.filename}`;
   }
 };
 
