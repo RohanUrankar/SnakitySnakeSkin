@@ -1,23 +1,17 @@
 # Dependencies
 node_modules/
-/client/node_modules/
+*/node_modules/
 
-# Environment variables - VERY IMPORTANT
+# Environment variables
 .env
+*/env
 .env.local
 .env.development
 .env.production
-.env.test
 
 # Build files
 /client/dist
 /client/build
-/build
-
-# Logs
-logs
-*.log
-npm-debug.log*
 
 # Misc
 .DS_Store
