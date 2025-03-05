@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "react-scroll": "^1.9.0"
-=======
   "name": "server",
   "version": "1.0.0",
   "description": "",
@@ -25,7 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.3",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7"
->>>>>>> fb6b9079ea2806a726c21616969b4b16f2208a1e
+    "nodemon": "^3.1.7",
+    "react-scroll": "^1.9.0"
   }
 }
