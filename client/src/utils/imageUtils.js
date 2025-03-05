@@ -58,11 +58,36 @@ export const defaultImages = [
 ];
 
 export const getImageUrl = (artwork) => {
+  // For debugging
+  console.log('Artwork being processed:', artwork);
+  
+  // Get cloudinary name from env
+  const cloudName = 'dl5bo3tq5';
+  
   if (isDevelopment) {
     return `/images/${artwork.filename}`;
   } else {
-    // Remove the "v1/" part that's causing the issue
-    return artwork.imageUrl || `https://res.cloudinary.com/dl5bo3tq5/image/upload/snakity-gallery/${artwork.filename}`;
+    // Check for specific artworks and hardcode the correct Cloudinary URLs
+    // based on the screenshot you shared
+    const cloudinaryIds = {
+      '1': 'snakity-gallery/s8v5bvi8pfouj97opmzv',
+      '2': 'snakity-gallery/ovaaxvfnoqcl7l8hxuyq',
+      '3': 'snakity-gallery/cibeplvbcy9yn157emlm',
+      '4': 'snakity-gallery/zahpx3xg2lbeeifgf2t0',
+      '5': 'snakity-gallery/obptujfbj8s1gugzgtxi',
+      '6': 'snakity-gallery/uzxc60x4xd6ck0wbgpml',
+      '7': 'snakity-gallery/zahpx3xg2lbeeifgf210',
+      '8': 'snakity-gallery/cdgpyruhffn4n7b6j1cs',
+      '9': 'snakity-gallery/vptnenncrxlkyfou7xme'
+    };
+    
+    // If we have a hardcoded ID for this artwork, use it
+    if (cloudinaryIds[artwork._id]) {
+      return `https://res.cloudinary.com/${cloudName}/image/upload/${cloudinaryIds[artwork._id]}`;
+    }
+    
+    // Fallback to original approach
+    return artwork.imageUrl || `https://res.cloudinary.com/${cloudName}/image/upload/snakity-gallery/${artwork.filename}`;
   }
 };
 
